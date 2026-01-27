@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import BarChart from './components/barChart.vue'
+import EarthGlobe from '@/components/EarthGlobe.vue'
 const title = ref('男女人数统计')
 const data = ref([
   {
@@ -31,9 +32,23 @@ const data2 = ref([
 
 <template>
   <router-view>
-    <BarChart :data="data" :title="title"></BarChart>
-    <barChart :data="data2" :title="title1"></barChart>
+    <div class="box">
+      <BarChart :data="data" :title="title"></BarChart>
+      <barChart :data="data2" :title="title1"></barChart>
+    </div>
+    <div class="map">
+      <EarthGlobe :atmosphere="true" :ambientIntensity="0.2" ></EarthGlobe>
+    </div>
   </router-view>
 </template>
 
-<style scoped></style>
+<style scoped>
+.map{
+  display: flex;
+  justify-content: center;
+}
+.box {
+  display: flex;
+  justify-content: center;
+}
+</style>
