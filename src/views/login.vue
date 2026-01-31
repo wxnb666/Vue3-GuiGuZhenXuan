@@ -1,7 +1,8 @@
 <script setup>
 import { ref } from 'vue';
 import { loginAPI, registerAPI } from '@/api/login'; 
-
+import { useRouter } from 'vue-router';
+const router=useRouter()
 const isLoginMode = ref(true); // 控制显示登录还是注册
 
 // 登录相关
@@ -29,8 +30,8 @@ const handleLogin = async () => {
       password: password.value,
     });
     console.log('登录成功:', result);
-    alert('登录成功'); // 或者使用 router.push('/dashboard')
-    // window.location.href = '/dashboard'; // 跳转逻辑
+    alert('登录成功'); 
+    router.push('/Home')
   } catch (error) {
     console.error('登录失败:', error);
     loginErrorMessage.value = error.message || '登录失败，请稍后重试';
