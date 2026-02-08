@@ -9,7 +9,7 @@ const router = createRouter({
     },
     {
       path: '/Home',
-      component: () => import('@/views/HomeMap.vue'),
+      component: () => import('@/views/Home.vue'),
     },
   ],
 })
